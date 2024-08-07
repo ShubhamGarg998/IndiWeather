@@ -1,0 +1,164 @@
+body, p{
+  margin: 0;
+  padding: 0;
+  font: 1.3em sans-serif;
+  color: #103250;
+}
+.container1, .container2{
+  margin: 0%;
+  padding: 16px 48px;
+}
+.container1{
+  background-color: #2660A4;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+#getWeather{
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 10px;
+  padding: 16px;
+  width: fit-content;
+  background-color: #A1E8E5;
+  border-left: solid 0.4rem;
+  border-radius: 5px;
+  /*16-07-24*/
+  width: 25%;
+  height: 75%;
+  justify-content: space-evenly;
+  gap: 7px;
+}
+form > input{ /*for all input element inside form*/
+  border: none;
+  padding: 7px;
+  border-radius: 1px 10px / 12px;
+}
+
+#weather{ /*button*/
+  background-color: #FC7964;
+}
+
+.formDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+.formDiv[id="div-button"]{
+  justify-content: end;
+}
+.cityInfo{
+  width: 25%;
+  height: 75%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
+  justify-content: center;
+  gap:  10px 16px;
+  margin: 0 0 0 10px;
+  padding: 16px;
+  background-color: #A1E8E5;
+  border-left: solid 0.4rem;
+  border-radius: 5px;
+}
+.cityLabel{
+  align-self: center;
+  justify-self: center;
+}
+.cityData{
+  align-self: center;
+}
+.container2{
+  background-color:#F6F7EB;
+}
+#weather-forecast-top{
+  display:flex;
+  flex-flow: row wrap;
+  height: fit-content;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
+.weather-forecast-inside{
+  height: 250px;
+  max-width: 500px;
+  min-width: 400px;
+  margin: 0 24px 8px 0;
+  flex: 1;
+  background-color:#A1E8E5;
+  border-radius: 5% / 50%; 
+  border-left: solid 4px;
+}
+.cardTop{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 16px 16px 0px 0px;
+}
+.temp{
+  display:grid;
+  justify-items: center;
+}
+.cardDesc{
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+  margin: 4px 24px;
+}
+.descBottom{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: solid #FC7964 1.5px;
+  height: 70px;
+}
+.field{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  margin-inline: 8px;
+}
+.time{
+  width: 90px;
+  text-align: center;
+}
+
+/*th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+th[scope='col'] {
+  background-color: #505050;
+  color: #fff;
+}
+
+th[scope='row'] {
+  background-color: #d6ecd4;
+}
+
+td {
+  text-align: center;
+}
+
+tr:nth-of-type(even) {
+  background-color: #eee;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+caption {
+  caption-side: bottom;
+  padding: 10px;
+}*/

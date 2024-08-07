@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>IndiWeather</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div class="container1">
+      <form method="post" id="getWeather">
+
+        <input type="text" id="lat" name="lat" placeholder="Enter Latitude">
+        <input type="text" id="lon" name="lon" placeholder="Enter Longitude">
+        <input type="submit" id="weather" value="Get Weather" formaction="/get-weather">
+        
+      </form>
+      <% if(locals.weathers){ %>
+        <div class="cityInfo">
+          <span class="cityLabel">City: </span> <span class="cityData"> <%= cityName %>, <%= country %> </span>
+          <img class="cityLabel"src="sunrise.svg" height="36px" width="36px" alt=""><span class="cityData"> <%= sunrise %></span>
+          <img class="cityLabel"src="sunset.svg" height="44px" width="44px" alt=""><span class="cityData"> <%= sunset %></span>
+        </div>
+      <% } %>
+    </div>
+    
+    
+    
+    <% if (locals.weathers) { %>
+      <div class="container2">
+        <div id="weather-forecast-top" >
+          <div id="weather1" class="weather-forecast-inside">
+            <div class="cardTop">
+              <img class="weatherIcon" src="https://openweathermap.org/img/wn/<%= weathers[0].weather[0].icon %>@2x.png"></img>
+              <span class="temp">
+                <span class="tempMain"><%= Math.round(weathers[0].main.temp) %>°</span>
+                <span class="tempFeelsLike">FeelsLike <%= Math.round(weathers[0].main.feels_like) %>°</span>
+              </span>
+                  
+              <span class="time"><%= timestamp[0] %></span>
+            </div>
+            
+            <div class="cardDesc">
+              <div class="descTop">
+                <p class="weatherDetail">
+                  <% var data = weathers[0].weather[0].description %>
+                  <%= data.toUpperCase() %>
+                </p>
+              </div>
+              <div class="descBottom">
+                <div class="field">
+                  <span class="humidity">Humidity:</span>
+                  <span><%= Math.round(weathers[0].main.humidity) %>%</span>
+                </div>
+                <div class="field">
+                  <span class="humidity">Wind:</span>
+                  <!-- multiplied by 3.8 to convert meter/second into kilometer/hour  -->
+                  <span><%= Math.round(weathers[0].wind.speed*3.8) %>km/h</span>
+                </div>
+                <div class="field">
+                  <span class="cloud">cloud cover:</span>
+                  <span><%= Math.round(weathers[0].clouds.all)  %>%</span>
+                </div>
+                <div class="field">
+                  <span class="Precipitation">Precipitation:</span>
+                  <span><%= Math.round(weathers[0].pop*100)  %>%</span>
+                </div>
+                
+                
+              </div>
+              
+            </div>
+          </div>
+          <div id="weather2" class="weather-forecast-inside">
+                        
+            <div class="cardTop">
+              <img class="weatherIcon" src="https://openweathermap.org/img/wn/<%= weathers[1].weather[0].icon %>@2x.png"></img>
+              <span class="temp">
+                <span class="tempMain"><%= Math.round(weathers[1].main.temp) %>°</span>
+                <span class="tempFeelsLike">FeelsLike <%= Math.round(weathers[1].main.feels_like) %>°</span>
+              </span>
+                  
+              <span class="time"><%= timestamp[1] %></span>
+            </div>
+            
+            <div class="cardDesc">
+              <div class="descTop">
+                <p class="weatherDetail">
+                  <% var data = weathers[1].weather[0].description %>
+                  <%= data.toUpperCase() %>
+                </p>
+              </div>
+              <div class="descBottom">
+                <div class="field">
+                  <span class="humidity">Humidity:</span>
+                  <span><%= Math.round(weathers[1].main.humidity) %>%</span>
+                </div>
+                <div class="field">
+                  <span class="humidity">Wind:</span>
+                  <span><%= Math.round(weathers[1].wind.speed*3.6) %>km/h</span>
+                </div>
+                <div class="field">
+                  <span class="cloud">cloud cover:</span>
+                  <span><%= Math.round(weathers[1].clouds.all) %>%</span>
+                </div>
+                <div class="field">
+                  <span class="Precipitation">Precipitation:</span>
+                  <span><%= Math.round(weathers[1].pop*100) %>%</span>
+                </div>
+                
+                
+              </div>
+              
+            </div>
+      
+            </div>
+            <div id="weather3" class="weather-forecast-inside">
+             
+                  <div class="cardTop">
+                    <img class="weatherIcon" src="https://openweathermap.org/img/wn/<%= weathers[2].weather[0].icon %>@2x.png"></img>
+                    <span class="temp">
+                      <span class="tempMain"><%= Math.round(weathers[2].main.temp) %>°</span>
+                      <span class="tempFeelsLike">FeelsLike <%= Math.round(weathers[2].main.feels_like) %>°</span>
+                    </span>
+                  
+                    <span class="time"><%= timestamp[2] %></span>
+                  </div>
+                  
+                  <div class="cardDesc">
+                    <div class="descTop">
+                      <p class="weatherDetail">
+                        <% var data = weathers[2].weather[0].description %>
+                        <%= data.toUpperCase() %>
+                      </p>
+                    </div>
+                    <div class="descBottom">
+                      <div class="field">
+                        <span class="humidity">Humidity:</span>
+                        <span><%= Math.round(weathers[2].main.humidity) %>%</span>
+                      </div>
+                      <div class="field">
+                        <span class="humidity">Wind:</span>
+                        <span><%= Math.round(weathers[2].wind.speed*3.6) %>km/h</span>
+                      </div>
+                      <div class="field">
+                        <span class="cloud">cloud cover:</span>
+                        <span><%= Math.round(weathers[2].clouds.all) %>%</span>
+                      </div>
+                      <div class="field">
+                        <span class="Precipitation">Precipitation:</span>
+                        <span><%= Math.round(weathers[2].pop*100) %>%</span>
+                      </div>
+                      
+                      
+                    </div>
+                    
+                  </div>
+      
+            </div>
+            <div id="weather4" class="weather-forecast-inside">
+              
+                  <div class="cardTop">
+                    <img class="weatherIcon" src="https://openweathermap.org/img/wn/<%= weathers[3].weather[0].icon %>@2x.png"></img>
+                    <span class="temp">
+                      <span class="tempMain"><%= Math.round(weathers[3].main.temp) %>°</span>
+                      <span class="tempFeelsLike">FeelsLike <%= Math.round(weathers[3].main.feels_like) %>°</span>
+                    </span>
+                    
+                  
+                  <span class="time"><%= timestamp[3] %></span>
+                  </div>
+                  
+                  <div class="cardDesc">
+                    <div class="descTop">
+                      <p class="weatherDetail">
+                        <% var data = weathers[3].weather[0].description %>
+                        <%= data.toUpperCase() %>
+                      </p>
+                    </div>
+                    <div class="descBottom">
+                      <div class="field">
+                        <span class="humidity">Humidity:</span>
+                        <span><%=  Math.round(weathers[3].main.humidity) %>%</span>
+                      </div>
+                      <div class="field">
+                        <span class="humidity">Wind:</span>
+                        <span><%=  Math.round(weathers[3].wind.speed*3.6) %>km/h</span>
+                      </div>
+                      <div class="field">
+                        <span class="cloud">cloud cover:</span>
+                        <span><%=  Math.round(weathers[3].clouds.all) %>%</span>
+                      </div>
+                      <div class="field">
+                        <span class="Precipitation">Precipitation:</span>
+                        <span><%= Math.round(weathers[3].pop*100) %>%</span>
+                      </div>
+                      
+                      
+                    </div>
+                    
+                  </div>
+    
+          </div>
+          <div id="weather5" class="weather-forecast-inside">
+                <div class="cardTop">
+                  <img class="weatherIcon" src="https://openweathermap.org/img/wn/<%= weathers[4].weather[0].icon %>@2x.png"></img>
+                  <span class="temp">
+                    <span class="tempMain"><%= Math.round(weathers[4].main.temp) %>°</span>
+                    <span class="tempFeelsLike">FeelsLike <%= Math.round(weathers[4].main.feels_like) %>°</span>
+                  </span>
+                  
+                  
+                  <span class="time"><%= timestamp[4] %></span>
+                </div>
+                
+                <div class="cardDesc">
+                  <div class="descTop">
+                    <p class="weatherDetail">
+                      <% var data = weathers[4].weather[0].description %>
+                      <%= data.toUpperCase() %>
+                    </p>
+                  </div>
+                  <div class="descBottom">
+                    <div class="field">
+                      <span class="humidity">Humidity:</span>
+                      <span><%=  Math.round(weathers[4].main.humidity) %>%</span>
+                    </div>
+                    <div class="field">
+                      <span class="humidity">Wind:</span>
+                      <span><%=  Math.round(weathers[4].wind.speed*3.6) %>km/h</span>
+                    </div>
+                    <div class="field">
+                      <span class="cloud">cloud cover:</span>
+                      <span><%=  Math.round(weathers[4].clouds.all) %>%</span>
+                    </div>
+                    <div class="field">
+                      <span class="Precipitation">Precipitation:</span>
+                      <span><%= Math.round(weathers[4].pop*100) %>%</span>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                </div>
+    
+          </div>
+          <div id="weather6" class="weather-forecast-inside">
+           
+                <div class="cardTop">
+                  <img class="weatherIcon" src="https://openweathermap.org/img/wn/<%= weathers[5].weather[0].icon %>@2x.png"></img>
+                  <span class="temp">
+                    <span class="tempMain"><%= Math.round(weathers[5].main.temp) %>°</span>
+                    <span class="tempFeelsLike">FeelsLike <%= Math.round(weathers[5].main.feels_like) %>°</span>
+                  </span>
+                  
+                  <span class="time"><%= timestamp[5] %></span>
+                </div>
+                
+                <div class="cardDesc">
+                  <div class="descTop">
+                    <p class="weatherDetail">
+                      <% var data = weathers[5].weather[0].description %>
+                      <%= data.toUpperCase() %>
+                    </p>
+                  </div>
+                  <div class="descBottom">
+                    <div class="field">
+                      <span class="humidity">Humidity:</span>
+                      <span><%=  Math.round(weathers[5].main.humidity) %>%</span>
+                    </div>
+                    <div class="field">
+                      <span class="humidity">Wind:</span>
+                      <span><%=  Math.round(weathers[5].wind.speed*3.6) %>km/h</span>
+                    </div>
+                    <div class="field">
+                      <span class="cloud">cloud cover:</span>
+                      <span><%=  Math.round(weathers[5].clouds.all) %>%</span>
+                    </div>
+                    <div class="field">
+                      <span class="Precipitation">Precipitation:</span>
+                      <span><%= Math.round(weathers[5].pop*100) %>%</span>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                </div>
+    
+          </div>
+          <div id="weather7" class="weather-forecast-inside">
+            
+                <div class="cardTop">
+                  <img class="weatherIcon" src="https://openweathermap.org/img/wn/<%= weathers[6].weather[0].icon %>@2x.png"></img>
+                  <span class="temp">
+                    <span class="tempMain"><%= Math.round(weathers[6].main.temp) %>°</span>
+                    <span class="tempFeelsLike">FeelsLike <%= Math.round(weathers[6].main.feels_like) %>°</span>
+                  </span>
+                  
+                  <span class="time"><%= timestamp[6] %></span>
+                </div>
+                
+                <div class="cardDesc">
+                  <div class="descTop">
+                    <p class="weatherDetail">
+                      <% var data = weathers[6].weather[0].description %>
+                      <%= data.toUpperCase() %>
+                    </p>
+                  </div>
+                  <div class="descBottom">
+                    <div class="field">
+                      <span class="humidity">Humidity:</span>
+                      <span><%=  Math.round(weathers[6].main.humidity) %>%</span>
+                    </div>
+                    <div class="field">
+                      <span class="wind">Wind:</span>
+                      <span><%=  Math.round(weathers[6].wind.speed*3.6) %>km/h</span>
+                    </div>
+                    <div class="field">
+                      <span class="cloud">cloud cover:</span>
+                      <span><%=  Math.round(weathers[6].clouds.all) %>%</span>
+                    </div>
+                    <div class="field">
+                      <span class="Precipitation">Precipitation:</span>
+                      <span><%= Math.round(weathers[6].pop*100) %>%</span>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                </div>
+    
+          </div>
+          <div id="weather8" class="weather-forecast-inside">
+            
+                <div class="cardTop">
+                  <img class="weatherIcon" src="https://openweathermap.org/img/wn/<%= weathers[7].weather[0].icon %>@2x.png"></img>
+                  <span class="temp">
+                    <span class="tempMain"><%= Math.round(weathers[7].main.temp) %>°</span>
+                    <span class="tempFeelsLike">FeelsLike <%= Math.round(weathers[7].main.feels_like) %>°</span>
+                  </span>
+                  
+                  <span class="time"><%= timestamp[7] %></span>
+                  </span>
+                  
+                </div>
+                
+                <div class="cardDesc">
+                  <div class="descTop">
+                    <p class="weatherDetail">
+                      <% var data = weathers[7].weather[0].description %>
+                      <%= data.toUpperCase() %>
+                    </p>
+                  </div>
+                  <div class="descBottom">
+                    <div class="field">
+                      <span class="humidity">Humidity:</span>
+                      <span><%= Math.round(weathers[7].main.humidity) %>%</span>
+                    </div>
+                    <div class="field">
+                      <span class="wind">Wind:</span>
+                      <span><%= Math.round(weathers[7].wind.speed*3.6) %>km/h</span>
+                    </div>
+                    <div class="field">
+                      <span class="cloud">cloud cover:</span>
+                      <span><%= Math.round(weathers[7].clouds.all) %>%</span>
+                    </div>
+                    <div class="field">
+                      <span class="Precipitation">Precipitation:</span>
+                      <span><%= Math.round(weathers[7].pop*100) %>%</span>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                </div>
+    
+          </div>
+  
+        </div>
+      </div>
+    
+    <% } %>  
+    
+</body>
+</html>
+
+
+
